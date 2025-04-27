@@ -25,7 +25,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::${{inputs.account-id}}:role/github-actions-role
           role-session-name: "github-action-session"
-          role-duration-seconds: 600
+          role-duration-seconds: 900
           aws-region: "us-east-1"
 
       - name: Install Python via custom action
