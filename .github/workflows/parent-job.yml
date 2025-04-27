@@ -1,0 +1,25 @@
+name: CI using Install Python Action
+
+on:
+  workflow_dispatch:  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Python via custom action
+        uses: ./install-python-action
+        with:
+          python-version: '3.11'
+
+      - name: Check Python version
+        run: python --version
+
+      - name: Run a Python script
+        run: |
+          echo "print('Hello from Python!')" > hello.py
+          python hello.py
