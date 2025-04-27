@@ -21,12 +21,9 @@ jobs:
         run: ls -lash
 
       - name: Setup AWS
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: ./actions/setup-aws
         with:
-          role-to-assume: arn:aws:iam::${{inputs.account-id}}:role/github-actions-role
-          role-session-name: "github-action-session"
-          role-duration-seconds: 900
-          aws-region: "us-east-1"
+          account-id: ${{inputs.account-id}}
 
       - name: Install Python via custom action
         uses: ./actions/setup-python
