@@ -7,8 +7,8 @@ on:
         description: 'AWS Account ID'
         required: true
 permissions:
-  id-token: write   # This is required for requesting the JWT
-  contents: read   
+  id-token: write
+  contents: read
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,9 +21,12 @@ jobs:
         run: ls -lash
 
       - name: Setup AWS
-        uses: ./actions/setup-aws
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          account-id: ${{inputs.account-id}}
+          role-to-assume: arn:aws:iam::${{inputs.account-id}}:role/github-actions-role
+          role-session-name: "github-action-session"
+          role-duration-seconds: 600
+          aws-region: "us-east-1"
 
       - name: Install Python via custom action
         uses: ./actions/install-python-action.yml

@@ -18,4 +18,4 @@ runs:
         role-to-assume: arn:aws:iam::${{inputs.account-id}}:role/github-actions-role
         role-session-name: "github-action-session"
         role-duration-seconds: 600
-        aws-region: ${{inputs.region}}
+        aws-region: ${{ inputs.region }}
