@@ -1,6 +1,9 @@
 name: 'Envs'
 
-
+outputs:
+  child-env:
+    description: 'Child environment created inside composite'
+    value: ${{ steps.set-env.outputs.child-env }}
 
 runs:
   using: "composite"
@@ -8,6 +11,7 @@ runs:
   
   # using https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/
     - name: Testing env from parent
+      id: set-env 
       shell: bash  
       env:
         CHILD_ENV_SETUP: "im your child from yml"
@@ -17,3 +21,5 @@ runs:
         echo $PARENT_ENV
         echo CHILD_ENV="i'm your child" >> $GITHUB_ENV
         echo CHILD_ENV_SETUP="$CHILD_ENV_SETUP" >> $GITHUB_ENV
+
+        echo "child-env=i-am-child-env" >> $GITHUB_OUTPUT
