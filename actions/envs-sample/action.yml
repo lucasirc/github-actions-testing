@@ -1,0 +1,18 @@
+name: 'Envs'
+
+
+
+runs:
+  using: "composite"
+  steps:
+  
+  # using https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/
+    - name: Testing env from parent
+      env:
+        CHILD_ENV_SETUP: "im your child from yml"
+      run: |
+        echo 'starting composite child'
+        echo $CHILD_ENV_SETUP
+        echo $PARENT_ENV
+        echo CHILD_ENV="i'm your child" >> $GITHUB_ENV
+        echo CHILD_ENV_SETUP="$CHILD_ENV_SETUP" >> $GITHUB_ENV
