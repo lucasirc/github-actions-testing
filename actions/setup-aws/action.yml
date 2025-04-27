@@ -7,7 +7,9 @@ inputs:
   account-id:
     description: 'AWS Account ID'
     required: true
-    
+permissions:
+  id-token: write
+  contents: read
 runs:
   using: "composite"
   steps:

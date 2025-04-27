@@ -6,9 +6,6 @@ on:
       account-id:
         description: 'AWS Account ID'
         required: true
-permissions:
-  id-token: write
-  contents: read
 jobs:
   build:
     runs-on: ubuntu-latest
