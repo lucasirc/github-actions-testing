@@ -15,7 +15,7 @@ runs:
     - name: Setup AWS
       uses: aws-actions/configure-aws-credentials@v3
       with:
-        role-to-assume: arn:aws:iam:${{inputs.account-id}}::role/github-actions-role
+        role-to-assume: arn:aws:iam::${{inputs.account-id}}:role/github-actions-role
         role-session-name: "github-action-session"
         role-duration-seconds: 600
         aws-region: ${{inputs.region}}
