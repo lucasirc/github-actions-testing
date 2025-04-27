@@ -6,6 +6,9 @@ on:
       account-id:
         description: 'AWS Account ID'
         required: true
+permissions:
+  id-token: write
+  contents: read
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,7 +29,7 @@ jobs:
           aws-region: "us-east-1"
 
       - name: Install Python via custom action
-        uses: ./actions/install-python-action.yml
+        uses: ./actions/setup-python
         with:
           python-version: '3.11'
 
