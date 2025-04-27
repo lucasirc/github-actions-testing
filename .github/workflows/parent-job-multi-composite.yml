@@ -19,7 +19,7 @@ jobs:
         run: ls -lash
 
       - name: Setup AWS
-        uses: ./actions/setup-aws.yml
+        uses: ./actions/setup-aws
         with:
           account-id: ${{inputs.account-id}}
 
