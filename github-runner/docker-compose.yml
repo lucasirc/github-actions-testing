@@ -1,0 +1,13 @@
+# docker-compose.yml
+version: '3'
+
+services:
+  github-runner:
+    build:
+      context: .
+      platform: linux/amd64
+    image: github-runner
+    environment:
+      - GITHUB_URL=https://github.com/sua-org/seu-repo
+      - RUNNER_TOKEN=${GITHUB_RUNNER_TOKEN}
+      - RUNNER_NAME=gh-runner-testing
