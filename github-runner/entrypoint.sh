@@ -20,7 +20,6 @@ fi
   --name "$RUNNER_NAME" \
   --work "_work" \
   --unattended \
-  --labels digiworld \
   --replace \
   $LABELS_ARG
 
