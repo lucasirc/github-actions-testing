@@ -1,0 +1,39 @@
+name: Testing using multi composite
+
+on:
+  workflow_dispatch:
+    inputs:
+      account-id:
+        description: 'AWS Account ID'
+        required: true
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  build:
+    runs-on: [self-hosted, digiworld]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check files
+        run: ls -lash
+
+      - name: Setup AWS
+        uses: ./actions/setup-aws
+        with:
+          account-id: ${{inputs.account-id}}
+
+      - name: Install Python via custom action
+        uses: ./actions/setup-python
+        with:
+          python-version: '3.11'
+
+      - name: Run a commands script
+        run: |
+          python --version  
+          echo "print('Hello from Python!')" > hello.py
+          python hello.py
+          aws s3 ls
+  
