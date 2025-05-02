@@ -1,4 +1,4 @@
-name: Testing using multi composite
+name: Self-hosted using multi composite
 
 on:
   workflow_dispatch:
