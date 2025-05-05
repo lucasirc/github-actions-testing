@@ -1,0 +1,3 @@
+name: github-runner-on-ecs
+runtime: go
+description: Runner do GitHub Actions no ECS com Pulumi
