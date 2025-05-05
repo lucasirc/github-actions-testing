@@ -7,6 +7,8 @@ services:
       context: .
       platform: linux/amd64
     image: github-runner
+    ports:
+      - 8080:80
     environment:
       - GITHUB_URL=https://github.com/sua-org/seu-repo
       - RUNNER_TOKEN=${GITHUB_RUNNER_TOKEN}

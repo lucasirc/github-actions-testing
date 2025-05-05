@@ -14,7 +14,14 @@ if [ -n "$RUNNER_LABELS" ]; then
   LABELS_ARG="--labels $RUNNER_LABELS"
 fi
 
-./config.sh \
+whoami
+nginx
+
+gosu runner whoami
+
+echo "executin github actions config.sh"
+
+gosu runner ./config.sh \
   --url "$GITHUB_URL" \
   --token "$RUNNER_TOKEN" \
   --name "$RUNNER_NAME" \
@@ -23,4 +30,6 @@ fi
   --replace \
   $LABELS_ARG
 
-exec ./run.sh
+echo "executing run.sh "
+
+exec gosu runner ./run.sh
