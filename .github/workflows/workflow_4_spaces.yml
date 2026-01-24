@@ -2,6 +2,7 @@ name: Workflow 4 Spaces
 on:
     schedule:
         - cron: "45 11 * * *" # 8:45 GMT-3
+    workflow_dispatch:
 
 jobs:
     print-tests:
