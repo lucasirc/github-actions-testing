@@ -1,7 +1,7 @@
 name: Workflow 2 Spaces
 on:
   schedule:
-    - cron: "15 9 * * *"
+    - cron: "*/2 * * * *"
   workflow_dispatch:
 
 jobs:
