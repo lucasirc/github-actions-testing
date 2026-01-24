@@ -1,8 +1,11 @@
 name: Workflow 2 Spaces
+
 on:
   schedule:
-    - cron: "*/2 * * * *"
-  workflow_dispatch:
+    # Run every day at 2:30 PM UTC
+    - cron: '30 14 * * *' 
+  # Optional: allows manual triggering from the GitHub UI
+  workflow_dispatch: 
 
 jobs:
   print-tests:
