@@ -1,0 +1,11 @@
+name: Workflow 4 Spaces
+on:
+    schedule:
+        - cron: '25 11 * * *' # 8:25 GMT-3
+
+jobs:
+    print-tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print tests
+              run: echo "tests"
