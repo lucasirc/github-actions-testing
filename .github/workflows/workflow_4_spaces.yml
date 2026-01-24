@@ -1,7 +1,7 @@
 name: Workflow 4 Spaces
 on:
     schedule:
-        - cron: "45 11 * * *" # 8:45 GMT-3
+        - cron: "15 9 * * *"
     workflow_dispatch:
 
 jobs:
